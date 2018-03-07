@@ -1,0 +1,2 @@
+export const MOBILE_ASYNC = 'MOBILE_ASYNC';
+export const MOBILE_SUCCESS = 'MOBILE_SUCCESS';

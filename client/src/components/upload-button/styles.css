@@ -1,0 +1,61 @@
+.upload-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.upload-btn .btn {
+  color: #2B2B2A;
+  background-color: white;
+}
+
+.upload-btn:hover .btn-default {
+  background: #ECECEC;
+}
+
+.upload-btn input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.upload-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+input[type='file'] {
+    opacity: 0
+}
+.upload-btn-wrapper .button-tooltip {
+  display: none;
+  position: absolute;
+  min-height: 30px;
+  min-width: 150px;
+  max-width: 300px;
+  padding: 8px 10px;
+  left: 0;
+  top: 45px;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.65);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.upload-btn-wrapper .button-tooltip:before {
+  content: "";
+  
+  position: absolute;
+  left: 20px;
+  top: -6px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 4.5px 6px 4.5px;
+  border-color: transparent transparent rgba(0,0,0,0.65) transparent;
+}
+.upload-btn-wrapper:hover .button-tooltip {
+  display: block;
+}

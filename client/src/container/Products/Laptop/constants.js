@@ -1,0 +1,2 @@
+export const LAPTOP_ASYNC = 'LAPTOP_ASYNC';
+export const LAPTOP_SUCCESS = 'LAPTOP_SUCCESS';
