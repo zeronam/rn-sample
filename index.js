@@ -13,7 +13,7 @@ app.use(session({
       }
 }));
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.listen(process.env.PORT || 5000);
 app.use('/', routes);
 
