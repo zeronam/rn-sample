@@ -10,7 +10,7 @@ import * as Vali from '../../utils/validator-helper';
 // import { ToastContainer, toast } from 'react-toastify';
 import Select from '../../components/react-validation/components/select';
 import * as NotifyActionType from '../../components/Notification/constatnts';
-import './styles.scss';
+import './styles.css';
 
 class Admin extends Component {
     constructor(props) {

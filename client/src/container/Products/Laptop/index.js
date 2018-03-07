@@ -4,7 +4,7 @@ import * as laptopActionType from './constants';
 import ListItem from '../../../components/List';
 import {Loading} from '../../../components/Loading';
 
-import './styles.scss';
+import './styles.css';
 
 class LaptopList extends Component {
     constructor(props){

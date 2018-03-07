@@ -4,7 +4,7 @@ import * as MobileActionType from './constants';
 import ListItem from '../../../components/List';
 import { Loading } from '../../../components/Loading';
 
-import './styles.scss';
+import './styles.css';
 
 class MobileList extends Component {
     constructor(props){

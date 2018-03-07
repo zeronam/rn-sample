@@ -108,9 +108,10 @@ body{
 .menu-text {
   float:left;
   margin-top:5px;
-  a {
-    padding:0;margin-top:0
-  }
+
+}
+.menu-text a {
+  padding:0;margin-top:0
 }
 .page-detail{
   width:100%;
@@ -140,10 +141,13 @@ h1{
 .cart {
   width:1200px;
   margin:0 auto;
-  h1{
-    margin: 30px 0 10px 0;
-  }
+
 }
+
+.cart h1{
+  margin: 30px 0 10px 0;
+}
+
 table {
   width:100%;
   border:1px solid #ccc;
@@ -174,14 +178,14 @@ table th, table td {
   margin:0 0 20px;
   height:100%;
   border-radius:5px;
-
-  &:hover {
+}
+  .page-list .inner:hover {
     border-color: #66afe9;
   }
-  img {
+  .page-list .inner img {
     height:180px;
   }
-  .product-name{
+  .page-list .inner .product-name{
     width:100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -189,7 +193,7 @@ table th, table td {
     margin-bottom:5px;
     color: #333;
   }
-}
+
 .column-inner{
   padding:10px;
 }
@@ -226,15 +230,12 @@ table th, table td {
   margin-top:30px;
 }
 
-.avatar{
-
-  img {
+.avatar img {
     height:200px;
     border:1px solid #ccc;
     padding:5px;
     float:right;
   }
-}
 .signin, .account_info{
   float:none;
   margin:0 auto;
@@ -242,15 +243,15 @@ table th, table td {
 .account_info{
   margin-top:20px;
 }
-.info_detail{
-  ul{
+.info_detail ul{
+
     list-style:none;
     padding:0;
-    li{
-      margin-bottom:5px;
-    }
+
   }
-}
+  .info_detail li{
+    margin-bottom:5px;
+  }
 
 .inputText {
   margin-bottom:20px;
