@@ -64,28 +64,28 @@
   },
   "proxy": {
     "/": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/products": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/admin": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/mobile": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/laptop": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/detail": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/account": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     },
     "/register": {
-      "target": "https://react-node-mongoose.herokuapp.com/"
+      "target": "http://localhost:5000"
     }
   },
   "jest": {
