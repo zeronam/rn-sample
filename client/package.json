@@ -62,32 +62,32 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  // "proxy": {
-  //   "/": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/products": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/admin": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/mobile": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/laptop": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/detail": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/account": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   },
-  //   "/register": {
-  //     "target": "https://react-node-mongoose.herokuapp.com/"
-  //   }
-  // },
+  "proxy": {
+    "/": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/products": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/admin": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/mobile": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/laptop": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/detail": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/account": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    },
+    "/register": {
+      "target": "https://react-node-mongoose.herokuapp.com/"
+    }
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
