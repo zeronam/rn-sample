@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as CreateActionType from './constants';
 import Products from '../Products';
 
-import './styles.css';
+import './styles.scss';
 
 class Home extends Component {
     constructor(props){

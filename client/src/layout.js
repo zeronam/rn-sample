@@ -10,7 +10,7 @@ import { Link, NavLink } from 'react-router-dom';
 // import ListItem from './components/List';
 // import NameInput from './components/Input';
 // import Button from './components/Button';
-import './index.css';
+import './index.scss';
 import PubSub from './utils/pubsub-service';
 import * as PubSubActionType from './utils/pubsub-actions';
 import { ToastContainer, toast } from 'react-toastify';

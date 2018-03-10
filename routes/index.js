@@ -111,7 +111,4 @@ router.post('/register', jsonParser, (req,res) => {
       });
 });
 
-
-
-
 module.exports = router;

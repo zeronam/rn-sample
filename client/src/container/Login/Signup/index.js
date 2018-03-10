@@ -8,7 +8,7 @@ import Input from '../../../components/react-validation/components/input';
 import * as Vali from '../../../utils/validator-helper';
 import * as NotifyActionType from '../../../components/Notification/constatnts';
 import { Loading } from '../../../components/Loading';
-import './styles.css';
+import './styles.scss';
 
 class SignUp extends Component {
     constructor(props) {
@@ -64,7 +64,6 @@ class SignUp extends Component {
                                         max="100"
                                         error="error"
                                         validations={[Vali.required, Vali.maxlength]} />
-
                                         <label>Last name <span className="text-danger">*</span></label>
 
                                     <Input type="text"
@@ -76,7 +75,7 @@ class SignUp extends Component {
                                         error="error"
                                         validations={[Vali.required, Vali.maxlength]} />
 
-                                    <label>Username <span className="text-danger">*</span></label>
+                                    <label>Email <span className="text-danger">*</span></label>
                                     <Input type="email"
                                         name="name"
                                         ref={(ref) => this.userNameInput = ref}
