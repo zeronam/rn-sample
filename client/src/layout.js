@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 import Popup from './components/Modal';
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-// import { EmailInput } from './components/Input';
-
-// import withProgressBar from './components/ProgressBar';
-
-// import ListItem from './components/List';
-// import NameInput from './components/Input';
-// import Button from './components/Button';
 import './index.css';
 import PubSub from './utils/pubsub-service';
 import * as PubSubActionType from './utils/pubsub-actions';
@@ -103,10 +96,8 @@ class Layout extends Component {
 
   render() {
     return (
-
-      <div className="App">
-        
-        {this.renderNavbar()}
+      <div className="App">        
+        {this.renderNavbar()}        
         {/* <Button bsStyle="primary" onClick={this.handleShow}>Hello</Button> */}
         <Popup show={this.state.show} onClose={this.closePopup}>Content 123</Popup>
         <div className="container">

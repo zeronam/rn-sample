@@ -53,7 +53,8 @@ class SignIn extends Component {
         var showLoading = this.state.isLoading ? <Loading /> : '';
         return (
             <div className="admin_content">
-                <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)}>
+                <p className="headtxt">Sign In</p>
+                <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)} className="signin_form">
 
                                     <label>Username <span className="text-danger">*</span></label>
 

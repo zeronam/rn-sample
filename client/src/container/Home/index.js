@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as CreateActionType from './constants';
 import Products from '../Products';
-
+import Slider from '../../components/Slide';
 import './styles.css';
 
 class Home extends Component {
@@ -28,7 +28,11 @@ class Home extends Component {
     render() {
         const homeLink = this.props.match.path === '/' ? <Products /> : null;
         return (
-            <div>{homeLink}</div>
+            
+            <div>
+                <Slider />
+                {homeLink}
+            </div>
         );
     }
 }

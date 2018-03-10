@@ -1,5 +1,5 @@
 ﻿(function (root, factory) {
-    'use strict';
+    
 
     var PubSub = {};
     root.PubSub = PubSub;
@@ -19,7 +19,6 @@
     }
 
 }((typeof window === 'object' && window) || this, function (PubSub) {
-    'use strict';
 
     var messages = {},
         lastUid = -1;

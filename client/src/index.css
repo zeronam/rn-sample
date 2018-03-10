@@ -1,5 +1,4 @@
-$space: 2.5rem;
-$warning-color: #ff0000;
+@import "../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 body {
   margin: 0;
@@ -164,7 +163,7 @@ table th, table td {
   font-size: 20px;
   margin: 30px 0 20px 0;
   display: block;
-  background: #015d82;
+  background: #df131a;
   display: inline-block;
   padding: 8px 15px;
   border-radius: 5px;
@@ -179,20 +178,22 @@ table th, table td {
   height:100%;
   border-radius:5px;
 }
-  .page-list .inner:hover {
-    border-color: #66afe9;
-  }
-  .page-list .inner img {
-    height:180px;
-  }
-  .page-list .inner .product-name{
-    width:100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-bottom:5px;
-    color: #333;
-  }
+.page-list .inner:hover {
+  border-color: #66afe9;
+}
+
+.page-list .inner img {
+  max-height:180px;
+  max-width: 100%;
+}
+.page-list .inner .product-name{
+  width:100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom:5px;
+  color: #333;
+}
 
 .column-inner{
   padding:10px;
