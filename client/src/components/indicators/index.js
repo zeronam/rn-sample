@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 //import Spinner from 'react-spinkit'; http://tobiasahlin.com/spinkit/
-import './styles.scss';
+import './styles.css';
 
 export class Indicator extends Component {
 

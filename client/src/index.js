@@ -10,7 +10,7 @@ import { createBrowserHistory } from 'history';
 import { ConnectedRouter } from 'react-router-redux';
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'jquery';
-import './style.scss';
+import './style.css';
 
 let routes = RoutesModule.routes;
 

@@ -8,8 +8,12 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run start"
+    "heroku-postbuild": "node index"
   },
+    "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

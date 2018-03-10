@@ -22,6 +22,7 @@ const userDataSchema = new Schema({
 
 const ProductData = mongoose.model('ProductData', productDataSchema);
 const UserData = mongoose.model('UserData', userDataSchema);
+
 router.post('/admin', jsonParser, (req,res) => {
     var {name, price, description, typeProduct, imgUrl} = req.body.params.data;   
       var item = {
@@ -40,6 +41,7 @@ router.post('/admin', jsonParser, (req,res) => {
 });
 
 router.get('/mobile', function(req, res, next) {
+
     ProductData.find({typeProduct: 'Mobile'})
         .then(function(doc) {
           res.send({
@@ -110,5 +112,7 @@ router.post('/register', jsonParser, (req,res) => {
             return res.send({statusCode: 200});
       });
 });
+
+
 
 module.exports = router;

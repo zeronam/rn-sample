@@ -9,7 +9,7 @@ import * as Vali from '../../../utils/validator-helper';
 import * as NotifyActionType from '../../../components/Notification/constatnts';
 import { NavLink } from 'react-router-dom';
 import { Loading } from '../../../components/Loading';
-import './styles.scss';
+import './styles.css';
 
 class SignIn extends Component {
     constructor(props) {

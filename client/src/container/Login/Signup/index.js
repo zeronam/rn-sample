@@ -8,7 +8,7 @@ import Input from '../../../components/react-validation/components/input';
 import * as Vali from '../../../utils/validator-helper';
 import * as NotifyActionType from '../../../components/Notification/constatnts';
 import { Loading } from '../../../components/Loading';
-import './styles.scss';
+import './styles.css';
 
 class SignUp extends Component {
     constructor(props) {
