@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from './styles.css';
+import './styles.css';
 
 const ErrorMessage = props =>
-  props.error && props.error.message ? <p className={styles.alertError}>{props.error.message}</p> : null;
+  <p className="text-danger">{props.error}</p>
 
 ErrorMessage.propTypes = {
-  error: PropTypes.object,
+  // error: PropTypes.object,
 };
 
 export default ErrorMessage;

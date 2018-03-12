@@ -9,6 +9,9 @@ import * as Vali from '../../../utils/validator-helper';
 import * as NotifyActionType from '../../../components/Notification/constatnts';
 import { NavLink } from 'react-router-dom';
 import { Loading } from '../../../components/Loading';
+
+import Modal from '../../../components/Modal';
+import ErrorMessage from '../../../components/ErrorMessage';
 import './styles.css';
 
 class SignIn extends Component {
@@ -17,12 +20,14 @@ class SignIn extends Component {
 
         this.state = {
             content: {},
-            isLoading: false
+            isLoading: false,
+            showError: ''
         };
     };
 
-    componentDidMount() {
-    };
+    onClosePopup = () => {
+        this.props.onClose();
+    }
 
     onSubmit(e) {
         this.setState({isLoading: true});
@@ -41,19 +46,21 @@ class SignIn extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({isLoading: false});
         if(nextProps.signin) {
-            this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Login success" });
-            // this.props.history.push(`/products`);
-        } else {
-            this.props.dispatch({ type: NotifyActionType.NOTIFY_ERROR, data: "Login faild" });
+            this.onClosePopup();        
+            // this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Login success" });
+        } 
+        if(nextProps.status === 'Create faild') {
+            this.setState({showError: true});
         }
-
     };
 
     renderForm() {
         var showLoading = this.state.isLoading ? <Loading /> : '';
+        var showErrorMessage = this.state.showError ? <ErrorMessage error="Username or password is incorrect"/> : null;
         return (
-            <div className="admin_content">
-                <p className="headtxt">Sign In</p>
+                <Modal show={this.props.show} 
+                    onClose={this.onClosePopup}
+                    title="Sign in">
                 <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)} className="signin_form">
 
                                     <label>Username <span className="text-danger">*</span></label>
@@ -77,12 +84,13 @@ class SignIn extends Component {
                                         error="error"
                                         validations={[Vali.required, Vali.maxlength]} />                                    
                                     {showLoading}
+                                    {showErrorMessage}
                                     <div className="center-buttons">
                                         <NavLink to="/register" className="btn btn-danger btn-register">Register</NavLink>
                                         <Submit className="btn btn-primary btn-submit">Sign In</Submit>
                                     </div>
                 </Form>
-            </div>
+                </Modal>
         )
     }
 

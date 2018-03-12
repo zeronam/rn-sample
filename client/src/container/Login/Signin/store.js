@@ -1,6 +1,11 @@
 import * as SignInActionType from './constants';
 
-const SignInStore = (state={}, action) => {
+const LoginDefaultState = {
+    signin: false,
+    status: ''
+}
+
+const SignInStore = (state=LoginDefaultState, action) => {
     switch (action.type) {
         case SignInActionType.SIGNIN_SUCCESS:
             return {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Modal} from 'react-bootstrap';
+import {Modal} from 'react-bootstrap';
 
 class PopOver extends Component {
 
@@ -12,15 +12,16 @@ class PopOver extends Component {
       }
       return (
           <Modal show={this.props.show}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Header>
+          <button type="button" className="close" onClick={(e) => this.onClose(e)}><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
+            <Modal.Title>{this.props.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>              
             {this.props.children}
           </Modal.Body>
-          <Modal.Footer>
+          {/* <Modal.Footer>
             <Button onClick={(e) => this.onClose(e)}>Close</Button>
-          </Modal.Footer>
+          </Modal.Footer> */}
         </Modal>
       )
     }

@@ -269,11 +269,18 @@ table th, table td {
 
 .textareaInput {
   margin-bottom:20px;
-  
-  textarea {
-    resize: none;
-    height:80px;
-  }
+}
+
+.textareaInput textarea {
+  resize: none;
+  height:80px;
+}
+
+.signin {
+  background: transparent;
+  border: 0 none;
+  color: #fff;
+  padding:10px 15px;
 }
 
 /*footer banner*/

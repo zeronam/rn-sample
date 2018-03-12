@@ -57,7 +57,7 @@ class Admin extends Component {
             <div className="admin_content">
                 <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)}>
 
-                                    <label>Tên sản phẩm <span className="text-danger">*</span></label>
+                                    <label>Product name <span className="text-danger">*</span></label>
 
                                     <Input type="text"
                                         name="name"
@@ -67,7 +67,7 @@ class Admin extends Component {
                                         max="100"
                                         error="error"
                                         validations={[Vali.required, Vali.maxlength]} />
-                                    <label>Giá sản phẩm<span className="text-danger">*</span></label>
+                                    <label>Price<span className="text-danger">*</span></label>
 
                                     <Input type="text"
                                         name="price"
@@ -77,7 +77,7 @@ class Admin extends Component {
                                         max="200"
                                         validations={[Vali.required, Vali.maxlength]} />
 
-                                    <label>Hình ảnh <span className="text-danger">*</span></label>
+                                    <label>Image Url <span className="text-danger">*</span></label>
           
                                     <Input type="text"
                                         name="imgUrl"
@@ -88,7 +88,7 @@ class Admin extends Component {
                                         validations={[Vali.required, Vali.maxlength]} />
 
 
-                                    <label>Mô tả <span className="text-danger">*</span></label>
+                                    <label>Description <span className="text-danger">*</span></label>
 
                                     <Textarea name="description"
                                         ref={(ref) => this.descInput = ref}
@@ -97,7 +97,7 @@ class Admin extends Component {
                                         row="8"
                                         validations={[Vali.required, Vali.maxlength]}></Textarea>
 
-                                    <label>Loại sản phẩm</label>
+                                    <label>Type product</label>
         
                                     <Select value="Mobile" name="typeProduct" className="form-control" validations={[Vali.required]}>
                                         <option value="Mobile">Mobile</option>

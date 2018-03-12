@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 // import { Button } from 'react-bootstrap';
-import Popup from './components/Modal';
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import './index.css';
 import PubSub from './utils/pubsub-service';
 import * as PubSubActionType from './utils/pubsub-actions';
 import { ToastContainer, toast } from 'react-toastify';
+import SignIn from './container/Login/Signin';
+
 class Layout extends Component {
   constructor(props) {
     super(props);
@@ -18,11 +19,10 @@ class Layout extends Component {
 
   handleShow = () => {
     this.setState({ showPopup: true });
-    // setTimeout(() => { alert('true') }, 3000);
   }
 
   closePopup = () => {
-    this.setState({ show: false });
+    this.setState({ showPopup: false });
   }
 
   componentDidMount() {
@@ -34,8 +34,6 @@ class Layout extends Component {
   PubSub.subscribe(PubSubActionType.TOAST_ERROR, (msg, data) => {
       toast.error(data.msg, {});
   });
-
-
   };
 
   componentWillUnmount() {
@@ -63,15 +61,15 @@ class Layout extends Component {
             <ul className="nav navbar-nav navbar-right topnav">
               <li><NavLink to="/" exact>Trang chủ</NavLink></li>
               <li className="dropdown">
-                <a href="" className="categlory products dropdown-toggle" data-toggle="dropdown">Sản phẩm<b className="caret"></b></a>
+                <a href="" className="categlory products dropdown-toggle" data-toggle="dropdown">Products<b className="caret"></b></a>
                 <ul className="dropdown-menu submenu is-dropdown-submenu first-sub">
-                  <li><NavLink exact to="/products/mobile">Điện thoại</NavLink></li>
+                  <li><NavLink exact to="/products/mobile">Mobile</NavLink></li>
                   <li><NavLink exact to="/products/laptop">Laptop</NavLink></li>
                 </ul>
-              </li>
-              <li><NavLink exact to="/account" activeClassName="active">Tài khoản</NavLink></li>
-              <li><NavLink exact to="/user" activeClassName="active">Giỏ hàng</NavLink></li>
-              <li><NavLink exact to="/admin" activeClassName="active">Quản lý</NavLink></li>
+              </li>              
+              <li><NavLink exact to="/cart" activeClassName="active">Cart</NavLink></li>
+              <li><NavLink exact to="/admin" activeClassName="active">Admin</NavLink></li>
+              <li><button onClick={this.handleShow} className="signin">Sign in</button></li>
             </ul>
           </div>
         </div>
@@ -99,7 +97,8 @@ class Layout extends Component {
       <div className="App">        
         {this.renderNavbar()}        
         {/* <Button bsStyle="primary" onClick={this.handleShow}>Hello</Button> */}
-        <Popup show={this.state.show} onClose={this.closePopup}>Content 123</Popup>
+        {/* <Popup show={this.state.showPopup} onClose={this.closePopup}>Content 123</Popup> */}
+        <SignIn show={this.state.showPopup} onClose={this.closePopup}/>
         <div className="container">
         {this.props.children}
         <ToastContainer position="top-right" hideProgressBar autoClose={3000} />    

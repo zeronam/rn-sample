@@ -9,6 +9,7 @@ import Detail from './container/Products/Detail';
 import Admin from './container/Admin';
 import Signin from './container/Login/Signin';
 import Signup from './container/Login/Signup';
+import Cart from './container/Cart';
 
 export const routes = <Layout>
     <Route exact path='/' component={Home} />
@@ -20,4 +21,5 @@ export const routes = <Layout>
     <Route path="/detail/:id" component={Detail}/>
     <Route path="/account" component={Signin}/>
     <Route path="/register" component={Signup}/>
+    <Route path="/cart" component={Cart}/>
 </Layout>;

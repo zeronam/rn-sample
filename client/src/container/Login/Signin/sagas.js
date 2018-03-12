@@ -6,7 +6,6 @@ import * as SignInActionType from './constants';
 export function* signInAsync(action) {
     const result = yield call(signInApi, action.params);
     const statusCode = result.statusCode;
-    console.log(result);
     if (statusCode === 200) {        
         yield [
             put({ type: SignInActionType.SIGNIN_SUCCESS, status: 'Create success' }),
