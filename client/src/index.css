@@ -283,6 +283,11 @@ table th, table td {
   padding:10px 15px;
 }
 
+.signinUser {
+  border:1px solid #fff;
+  border-radius:5px;
+}
+
 /*footer banner*/
 .ads{margin-bottom:15px;}
 

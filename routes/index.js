@@ -82,14 +82,13 @@ router.post('/account', jsonParser, (req,res) => {
     var name = req.body.params.data.name;
     var password = req.body.params.data.password;
   UserData.findOne({name, password}, (err, user) => {
-    console.log(user);
     if (err) return res.send({statusCode: 500});
     if(!user) {
         return res.send({
             statusCode: 404
         });
     }
-    return res.send({ message: 'Login success', statusCode: 200 });
+    return res.send({ message: 'Login success', statusCode: 200, item: user });
   });
 });
 

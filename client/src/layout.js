@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Button } from 'react-bootstrap';
 // import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+// import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import './index.css';
 import PubSub from './utils/pubsub-service';
@@ -14,6 +15,8 @@ class Layout extends Component {
 
     this.state = {
       showPopup: false,
+      userName: 'Sign in',
+      isSignin: false
     }
   }
 
@@ -31,15 +34,29 @@ class Layout extends Component {
       toast.success(data.msg, {});
     });
 
-  PubSub.subscribe(PubSubActionType.TOAST_ERROR, (msg, data) => {
-      toast.error(data.msg, {});
-  });
+    PubSub.subscribe(PubSubActionType.TOAST_ERROR, (msg, data) => {
+        toast.error(data.msg, {});
+    });
   };
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.signin) {
+      this.setState({userName: nextProps.data.lastName, isSignin: true});
+    }
+  }
 
   componentWillUnmount() {
     PubSub.subscribe(PubSubActionType.TOAST_SUCCESS);
     PubSub.subscribe(PubSubActionType.TOAST_ERROR);
-};
+  };
+
+  dataSignIn = (user) => {
+    console.log(user.name);
+    debugger;
+    if(user.name) {
+      this.setState({isSignin: true,userName: user.lastName});
+    }
+  }
 
 
   renderNavbar() {
@@ -69,7 +86,16 @@ class Layout extends Component {
               </li>              
               <li><NavLink exact to="/cart" activeClassName="active">Cart</NavLink></li>
               <li><NavLink exact to="/admin" activeClassName="active">Admin</NavLink></li>
-              <li><button onClick={this.handleShow} className="signin">Sign in</button></li>
+              <li></li>
+              <li className="dropdown">                
+                  {this.state.isSignin ?
+                    <a href="" className="signinUser dropdown-toggle" data-toggle="dropdown"><i className="fa fa-user"></i> {this.state.userName}</a>
+                    : <button onClick={this.handleShow} className="signin">{this.state.userName}</button>
+                  }                
+                <ul className="dropdown-menu submenu is-dropdown-submenu first-sub">
+                  <li><a href="" className="logout">Log out</a></li>
+                </ul>
+              </li> 
             </ul>
           </div>
         </div>
@@ -98,7 +124,7 @@ class Layout extends Component {
         {this.renderNavbar()}        
         {/* <Button bsStyle="primary" onClick={this.handleShow}>Hello</Button> */}
         {/* <Popup show={this.state.showPopup} onClose={this.closePopup}>Content 123</Popup> */}
-        <SignIn show={this.state.showPopup} onClose={this.closePopup}/>
+        <SignIn show={this.state.showPopup} onClose={this.closePopup} dataUser={this.dataSignIn}/>
         <div className="container">
         {this.props.children}
         <ToastContainer position="top-right" hideProgressBar autoClose={3000} />    
@@ -108,4 +134,9 @@ class Layout extends Component {
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return state.SignInStore;
+// };
+
+// export default connect(mapStateToProps, null)(Layout);
 export default Layout;

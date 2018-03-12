@@ -42,14 +42,19 @@ class SignIn extends Component {
         e.preventDefault();
     };
 
+    handleChange = (user) => {
+        this.props.dataUser(user);
+    } 
+
 
     componentWillReceiveProps(nextProps) {
         this.setState({isLoading: false});
         if(nextProps.signin) {
-            this.onClosePopup();        
+            this.onClosePopup();
+            this.handleChange(nextProps.data);     
             // this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Login success" });
         } 
-        if(nextProps.status === 'Create faild') {
+        if(nextProps.status === 'Login faild') {
             this.setState({showError: true});
         }
     };

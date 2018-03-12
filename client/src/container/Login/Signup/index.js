@@ -41,7 +41,7 @@ class SignUp extends Component {
         this.setState({isLoading: false});
         if(nextProps.signup) {
             this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Create account success" });
-            this.props.history.push(`/account`);
+            this.props.history.push(`/`);
         } else {
             this.props.dispatch({ type: NotifyActionType.NOTIFY_ERROR, data: "Create account faild" });
         }
