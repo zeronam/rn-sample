@@ -91,7 +91,7 @@ class SignIn extends Component {
                                     {showLoading}
                                     {showErrorMessage}
                                     <div className="center-buttons">
-                                        <NavLink to="/register" className="btn btn-danger btn-register">Register</NavLink>
+                                        <NavLink to="/register" className="btn btn-danger btn-register" onClick={this.onClosePopup}>Register</NavLink>
                                         <Submit className="btn btn-primary btn-submit">Sign In</Submit>
                                     </div>
                 </Form>
