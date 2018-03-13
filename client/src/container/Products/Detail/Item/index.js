@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import * as CartActionType from './constants';
 import { connect } from 'react-redux';
 
+import * as NotifyActionType from '../../../../components/Notification/constatnts';
+
 class ItemDetail extends Component {
 
-    addToCart(event, product) {
+    addToCart(event, product) {        
         event.preventDefault();
         this.props.dispatch({
             type: CartActionType.ADD_TO_CART,
@@ -13,7 +15,8 @@ class ItemDetail extends Component {
                 quantity: 1
             }
         });
-        
+        this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Buy success" });
+        console.log(this.props);       
     }
 
     renderItem() {
@@ -53,7 +56,6 @@ class ItemDetail extends Component {
     }
 
     render() {
-        console.log(this.props);
         return(<div>
                 {this.renderItem()}
             </div>

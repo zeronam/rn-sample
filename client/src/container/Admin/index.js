@@ -56,9 +56,7 @@ class Admin extends Component {
         return (
             <div className="admin_content">
                 <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)}>
-
                                     <label>Product name <span className="text-danger">*</span></label>
-
                                     <Input type="text"
                                         name="name"
                                         ref={(ref) => this.nameInput = ref}

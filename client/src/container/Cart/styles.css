@@ -1,5 +1,10 @@
 .cartNotice {
-    text-align: center;
     margin-top:80px;
     font-size:20px;
+}
+
+.productThumb {
+    max-height:100px;
+    display:block;
+    margin:0 auto;
 }
