@@ -21,15 +21,6 @@ class Slider extends React.Component {
       {
         original: 'images/topads04.png'
       },
-      {
-        original: 'images/topads05.png'
-      },
-      {
-        original: 'images/topads06.png'
-      },
-      {
-        original: 'images/topads07.png'
-      },
     ]
 
     return (

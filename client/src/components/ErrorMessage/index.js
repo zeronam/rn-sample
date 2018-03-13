@@ -6,7 +6,7 @@ const ErrorMessage = props =>
   <p className="text-danger">{props.error}</p>
 
 ErrorMessage.propTypes = {
-  // error: PropTypes.object,
+  error: PropTypes.string,
 };
 
 export default ErrorMessage;

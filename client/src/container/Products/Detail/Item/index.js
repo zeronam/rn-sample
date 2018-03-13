@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
-// import { NavLink } from 'react-router-dom';
+import * as CartActionType from './constants';
+import { connect } from 'react-redux';
 
 class ItemDetail extends Component {
+
+    addToCart(event, product) {
+        event.preventDefault();
+        this.props.dispatch({
+            type: CartActionType.ADD_TO_CART,
+            data: 
+            {   product,
+                quantity: 1
+            }
+        });
+        
+    }
 
     renderItem() {
         let {data} = this.props;
@@ -30,7 +43,7 @@ class ItemDetail extends Component {
               <input type="radio" id="starhalf" name="rating" value="half" /><label className="half" htmlFor="starhalf" title="Mất thời gian - 0.5 stars"></label>
           </div>
           <p className="price_line">Giá: <span className="price">{data.price}</span> VNĐ</p>
-          <button className="button secondary">Đặt mua</button>
+          <button className="button secondary" onClick={(e) => this.addToCart(e, data)}>Đặt mua</button>
           </div>
           </div>          
         </div>
@@ -40,6 +53,7 @@ class ItemDetail extends Component {
     }
 
     render() {
+        console.log(this.props);
         return(<div>
                 {this.renderItem()}
             </div>
@@ -47,4 +61,5 @@ class ItemDetail extends Component {
     }
 }
 
-export default ItemDetail;
+
+export default connect()(ItemDetail);

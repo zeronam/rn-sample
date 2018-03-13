@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import { Button } from 'react-bootstrap';
-// import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-// import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import './index.css';
 import PubSub from './utils/pubsub-service';
@@ -15,7 +12,7 @@ class Layout extends Component {
 
     this.state = {
       showPopup: false,
-      userName: 'Sign in',
+      userName: '',
       isSignin: false
     }
   }
@@ -51,10 +48,8 @@ class Layout extends Component {
   };
 
   dataSignIn = (user) => {
-    console.log(user.name);
-    debugger;
     if(user.name) {
-      this.setState({isSignin: true,userName: user.lastName});
+      this.setState({isSignin: true,userName: user.firstName});
     }
   }
 
@@ -76,7 +71,7 @@ class Layout extends Component {
           </div>
           <div className="collapse navbar-collapse navbar3">
             <ul className="nav navbar-nav navbar-right topnav">
-              <li><NavLink to="/" exact>Trang chủ</NavLink></li>
+              <li><NavLink to="/" exact>Home</NavLink></li>
               <li className="dropdown">
                 <a href="" className="categlory products dropdown-toggle" data-toggle="dropdown">Products<b className="caret"></b></a>
                 <ul className="dropdown-menu submenu is-dropdown-submenu first-sub">
@@ -90,7 +85,7 @@ class Layout extends Component {
               <li className="dropdown">                
                   {this.state.isSignin ?
                     <a href="" className="signinUser dropdown-toggle" data-toggle="dropdown"><i className="fa fa-user"></i> {this.state.userName}</a>
-                    : <button onClick={this.handleShow} className="signin">{this.state.userName}</button>
+                    : <button onClick={this.handleShow} className="signin">Sign in</button>
                   }                
                 <ul className="dropdown-menu submenu is-dropdown-submenu first-sub">
                   <li><a href="" className="logout">Log out</a></li>

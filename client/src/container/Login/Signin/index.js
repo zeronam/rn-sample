@@ -6,7 +6,7 @@ import Form from '../../../components/react-validation/components/form';
 import Submit from '../../../components/react-validation/components/submit';
 import Input from '../../../components/react-validation/components/input';
 import * as Vali from '../../../utils/validator-helper';
-import * as NotifyActionType from '../../../components/Notification/constatnts';
+// import * as NotifyActionType from '../../../components/Notification/constatnts';
 import { NavLink } from 'react-router-dom';
 import { Loading } from '../../../components/Loading';
 

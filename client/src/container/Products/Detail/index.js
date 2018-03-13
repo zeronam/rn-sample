@@ -31,7 +31,7 @@ class Detail extends Component {
     };
 
     render() {
-        const detailItem = this.state.hadContent ?  <ItemDetail data={this.state.content}/>: null;
+        const detailItem = this.state.hadContent ?  <ItemDetail data={this.state.content} />: null;
 
 
         return (

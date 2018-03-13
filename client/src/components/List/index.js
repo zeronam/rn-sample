@@ -11,7 +11,7 @@ class ListItem extends Component {
                     <NavLink to={`/detail/${data._id}`} className="navlink" title={data.name}>
                     <img src={data.imgUrl} alt={data.name}/> 
                     <p className="product-name">{data.name}</p> 
-                    <p className="price">{data.price}</p>
+                    <p className="price">{data.price} VND</p>
                     </NavLink>
                     {/* <button className="button secondary">Chi tiết</button>      */}
                 </div>           

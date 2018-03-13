@@ -7,6 +7,7 @@ import AdminStore from './container/Admin/store';
 import SignInStore from './container/Login/Signin/store';
 import SignUpStore from './container/Login/Signup/store';
 import NotificationStore from './components/Notification/store';
+import CartStore from './container/Products/Detail/Item/store';
 
 const rootReducer = combineReducers({
     CreateStore,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     DetailStore,
     NotificationStore,
     SignInStore,
-    SignUpStore
+    SignUpStore,
+    CartStore
 })
 
 export default rootReducer;

@@ -27,10 +27,15 @@ class Cart extends Component {
     };
 
     render() {
-        let checkLogin = this.state.isSignin ? <p className="cartNotice">Your Shopping Cart is empty</p>
+        let status = this.state.isSignin ? 'Your Shopping Cart is empty' 
+        : 'You are not sign in';
+        let checkLogin = this.state.isSignin ? null
         : <SignIn show={this.state.showPopup} onClose={this.closePopup} />;
         return(
-            <div>{checkLogin}</div>
+            <div>
+                <p className="cartNotice">{status}</p>
+                {checkLogin}
+            </div>
         )
     }
 }
