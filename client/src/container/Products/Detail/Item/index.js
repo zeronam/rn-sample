@@ -11,12 +11,12 @@ class ItemDetail extends Component {
         this.props.dispatch({
             type: CartActionType.ADD_TO_CART,
             data: 
-            {   product,
+            {   
+                product, 
                 quantity: 1
             }
         });
-        this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Buy success" });
-        console.log(this.props);       
+        this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: "Buy success" });      
     }
 
     renderItem() {
@@ -46,7 +46,7 @@ class ItemDetail extends Component {
               <input type="radio" id="starhalf" name="rating" value="half" /><label className="half" htmlFor="starhalf" title="Mất thời gian - 0.5 stars"></label>
           </div>
           <p className="price_line">Giá: <span className="price">{data.price}</span> VNĐ</p>
-          <button className="button secondary" onClick={(e) => this.addToCart(e, data)}>Đặt mua</button>
+          <button className="button secondary" onClick={(e) => this.addToCart(e, data)}>Buy now</button>
           </div>
           </div>          
         </div>

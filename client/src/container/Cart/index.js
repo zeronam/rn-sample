@@ -40,15 +40,16 @@ class Cart extends Component {
     renderTable() {
         return (
             <BootstrapTable data={this.state.products}>
-                <TableHeaderColumn dataField="_id" isKey={true} dataAlign="center" dataSort={true} width='25%' hidden={true}>Product ID</TableHeaderColumn>
-                <TableHeaderColumn dataField="imgUrl" width='25%' dataFormat={this.imageFormatter}>Image</TableHeaderColumn>
-                <TableHeaderColumn dataField="name" width='25%'>Product Name</TableHeaderColumn>
-                <TableHeaderColumn dataField="price" dataFormat={this.priceFormatter} width='25%'>Product Price</TableHeaderColumn>
+                <TableHeaderColumn dataField="_id" isKey={true} dataAlign="center" dataSort={true} hidden={true}>Product ID</TableHeaderColumn>
+                <TableHeaderColumn dataField="imgUrl" dataFormat={this.imageFormatter}>Image</TableHeaderColumn>
+                <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
+                <TableHeaderColumn dataField="price" dataFormat={this.priceFormatter}>Product Price</TableHeaderColumn>
             </BootstrapTable>
         )        
     }
 
     render() {
+        console.log(this.props.listCart);
         for(var i=0; i< this.props.listCart.length; i++ ){
             this.state.products.push(this.props.listCart[i].product);
         }

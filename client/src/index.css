@@ -292,8 +292,8 @@ table th, table td {
 .ads{margin-bottom:15px;}
 
 /*footer*/
-.footer-bottom {width: 100%;padding: 5px 0;background: #000;position: absolute;bottom:0}
-.footer-bottom p {color: #fff;margin-top:15px;margin-bottom:0;padding-left:15px;}
+.footer-bottom {width: 100%;padding: 5px 0;border-top:1px solid #ddd;position: absolute;bottom:0}
+.footer-bottom p {color: #222;margin-bottom:0;padding: 15px 0 15px 15px;}
 .footer-bottom .card {display:inline-block;vertical-align:middle;margin-left:5px;background: transparent;border:0 none}
 #footer-bottom {text-align: right;margin-top:10px;padding-right:15px;}
 

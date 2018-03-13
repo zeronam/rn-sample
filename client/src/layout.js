@@ -103,10 +103,11 @@ class Layout extends Component {
       <div className="footer-bottom">
       <div className="container">
         <div className="row">
-          <p className="col-md-6 col-sm-6 col-xs-12"><b>Payment with</b> <img src="images/card.png" className="card" alt="Card payment"/></p>
-          <div id="footer-bottom" className="col-md-6 col-sm-6 col-xs-12">
+          <p className="col-md-6 col-sm-6 col-xs-12"><b>@2018 Created by zeronam</b> </p>
+          {/* <img src="images/card.png" className="card" alt="Card payment"/></p> */}
+          {/* <div id="footer-bottom" className="col-md-6 col-sm-6 col-xs-12">
               <img src="images/logo.png" alt="Logo"/>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -124,6 +125,7 @@ class Layout extends Component {
         {this.props.children}
         <ToastContainer position="top-right" hideProgressBar autoClose={3000} />    
         </div>
+        {this.renderFooter()}
       </div>
     );
   }
