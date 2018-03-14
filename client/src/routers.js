@@ -10,6 +10,7 @@ import Admin from './container/Admin';
 import Signin from './container/Login/Signin';
 import Signup from './container/Login/Signup';
 import Cart from './container/Cart';
+import Search from './container/Search';
 
 export const routes = <Layout>
     <Route exact path='/' component={Home} />
@@ -22,4 +23,5 @@ export const routes = <Layout>
     <Route path="/account" component={Signin}/>
     <Route path="/register" component={Signup}/>
     <Route path="/cart" component={Cart}/>
+    <Route path="/search" component={Search}/>
 </Layout>;

@@ -24,13 +24,10 @@ class Cart extends Component {
 
     componentWillReceiveProps(nextProps) {
         debugger;
-        // if(nextProps.login.signin) {
-        //     this.setState({isSignin : nextProps.login.signin});
-        // }
     };
 
     priceFormatter(cell, row){
-        return '<i class="glyphicon glyphicon-usd"></i> ' + cell;
+        return '<i class="glyphicon glyphicon-usd"></i> ' + cell + ' VND';
     };
 
     imageFormatter(cell, row){

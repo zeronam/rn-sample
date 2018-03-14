@@ -40,9 +40,30 @@ router.post('/admin', jsonParser, (req,res) => {
     });
 });
 
+router.post('/search', jsonParser, (req,res) => {
+    var keyword = req.body.params.param.keyword;
+    var regex = new RegExp(keyword)
+    // ProductData.find({name}, (err, product) => {
+    //     if (err) return res.send({statusCode: 500});
+    //     if(!product) {
+    //         return res.send({
+    //             statusCode: 404
+    //         });
+    //     }
+    //     return res.send({ message: 'Search success', statusCode: 200, item: product });
+    //   });
+    ProductData.find({name: regex})
+      .then(function(doc) {
+        res.send({
+            items: doc,
+            statusCode: 200
+      });
+  });
+});
+
 router.get('/mobile', function(req, res, next) {
 
-    ProductData.find({typeProduct: 'Mobile'})
+    ProductData.find({typeProduct: 'Mobile'}).limit(8).sort({ name: -1 })
         .then(function(doc) {
           res.send({
               items: doc,
