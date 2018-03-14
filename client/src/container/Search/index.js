@@ -6,6 +6,8 @@ import Form from '../../components/react-validation/components/form';
 import Submit from '../../components/react-validation/components/submit';
 import Input from '../../components/react-validation/components/input';
 import * as Vali from '../../utils/validator-helper';
+import ListItem from '../../components/List';
+import { Loading } from '../../components/Loading';
 // import { ToastContainer, toast } from 'react-toastify';
 import './styles.css';
 
@@ -15,6 +17,8 @@ class Search extends Component {
 
         this.state = {
             content: {},
+            keyword: '',
+            hadContent:false
         };
     };
 
@@ -22,7 +26,7 @@ class Search extends Component {
     };
 
     onSubmit(e) {
-
+        this.setState({hadContent: false});
         let param = this.form.getValues();
         this.props.dispatch({
             type: SearchActionType.SEARCH_ASYNC,
@@ -35,35 +39,42 @@ class Search extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-
-            this.props.history.push(`/search`);
-            // this.props.dispatch({
-            //     type: SearchActionType.ADMIN_RESET,
-            // });
+        if(nextProps.search){
+            this.setState({content: nextProps.data, hadContent: true, keyword: nextProps.keyword});
+        }
     };
 
     renderForm() {
         return (
-            <div className="admin_content">
+            <div className="admin_content search">
                 <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)}>
                                     <Input type="text"
                                         name="keyword"
                                         ref={(ref) => this.nameInput = ref}
-                                        placeholder="Product name"
+                                        placeholder="Search product"
                                         className="form-control"
                                         max="100"
                                         error="error"
+                                        value={this.state.keyword}
                                         validations={[Vali.maxlength]} />
         
                                     <div className="center-buttons">
-                                        <Submit className="btn btn-primary btn-submit">Add</Submit>
+                                        <Submit className="btn btn-primary btn-submit">Search</Submit>
                                     </div>
                 </Form>
             </div>
         )
     }
+
     render() {
-        return <div>{this.renderForm()}</div>;
+        console.log(this.state.content.length);
+        var searchItem = this.state.hadContent > 0 ? <ListItem data={this.state.content} /> : <Loading />;
+    return (
+    <div className="page-list">
+        {this.renderForm()}
+        <p className="search_result"> {this.state.content.length} results </p>
+        {searchItem}
+    </div>);
 
     }
 }

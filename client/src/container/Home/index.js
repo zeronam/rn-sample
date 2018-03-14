@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import * as CreateActionType from './constants';
 import Products from '../Products';
 import Slider from '../../components/Slide';
-import Search from '../Search';
+import Form from '../../components/react-validation/components/form';
+import Submit from '../../components/react-validation/components/submit';
+import Input from '../../components/react-validation/components/input';
+import * as Vali from '../../utils/validator-helper';
+import * as SearchActionType from '../Search/constants';
 import './styles.css';
 
 class Home extends Component {
@@ -23,7 +27,20 @@ class Home extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({content: nextProps.data});
+       
     }
+
+    onSubmit(e) {
+        let param = this.form.getValues();
+        this.props.dispatch({
+            type: SearchActionType.SEARCH_ASYNC,
+            params: {
+                param,
+            }
+        });
+        this.props.history.push(`/search`);
+        e.preventDefault();
+    };
 
 
     render() {
@@ -32,7 +49,22 @@ class Home extends Component {
             
             <div>
                 <Slider />
-                {/* <Search /> */}
+                <div className="admin_content search">
+                <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)}>
+                                    <Input type="text"
+                                        name="keyword"
+                                        ref={(ref) => this.nameInput = ref}
+                                        placeholder="Search product"
+                                        className="form-control"
+                                        max="100"
+                                        error="error"
+                                        validations={[Vali.maxlength]} />
+        
+                                    <div className="center-buttons">
+                                        <Submit className="btn btn-primary btn-submit">Search</Submit>
+                                    </div>
+                </Form>
+            </div>
                 {homeLink}
             </div>
         );

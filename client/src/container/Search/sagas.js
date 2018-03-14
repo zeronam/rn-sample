@@ -8,7 +8,7 @@ export function* createSearchAsync(action) {
     const statusCode = result.statusCode;
     if (statusCode === 200) {
         yield [
-            put({ type: SearchActionType.SEARCH_SUCCESS, status: 'Search success', data: result.item  }),
+            put({ type: SearchActionType.SEARCH_SUCCESS, status: 'Search success', data: result.items, keyword: result.keyword  }),
         ];
     } else {
         yield [

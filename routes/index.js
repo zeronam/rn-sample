@@ -40,23 +40,19 @@ router.post('/admin', jsonParser, (req,res) => {
     });
 });
 
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 router.post('/search', jsonParser, (req,res) => {
     var keyword = req.body.params.param.keyword;
-    var regex = new RegExp(keyword)
-    // ProductData.find({name}, (err, product) => {
-    //     if (err) return res.send({statusCode: 500});
-    //     if(!product) {
-    //         return res.send({
-    //             statusCode: 404
-    //         });
-    //     }
-    //     return res.send({ message: 'Search success', statusCode: 200, item: product });
-    //   });
+    var regex = new RegExp(escapeRegex(keyword));
     ProductData.find({name: regex})
       .then(function(doc) {
         res.send({
             items: doc,
-            statusCode: 200
+            statusCode: 200,
+            keyword
       });
   });
 });

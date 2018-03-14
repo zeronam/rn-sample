@@ -5,12 +5,14 @@ const SearchStore = (state={}, action) => {
         case SearchActionType.SEARCH_SUCCESS:
             return {
                 status: action.status,
-                create: true,
+                data: action.data,
+                search: true,
+                keyword: action.keyword
             };
         case SearchActionType.SEARCH_FAILD:
         return {
             status: action.status,
-            create: false,
+            search: false,
         };
         default:
             return state;
