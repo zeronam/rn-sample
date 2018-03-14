@@ -47,7 +47,7 @@ function escapeRegex(text) {
 router.post('/search', jsonParser, (req,res) => {
     var keyword = req.body.params.param.keyword;
     var regex = new RegExp(escapeRegex(keyword));
-    ProductData.find({name: regex})
+    ProductData.find({name: regex}).collation( { locale: 'en', strength: 2 } )
       .then(function(doc) {
         res.send({
             items: doc,

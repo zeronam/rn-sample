@@ -29,3 +29,17 @@
     margin:0;
     height:50px;
 }
+
+@media screen and (max-width: 768px) {
+    .admin_content.search{
+        width: 100%;
+    }
+
+    .admin_content.search form{
+        display:flex;
+    }
+
+    .admin_content.search .inputText {
+        flex: 5
+    }
+}
