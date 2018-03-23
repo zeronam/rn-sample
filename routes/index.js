@@ -1,27 +1,27 @@
 var express = require('express');
 var router = express.Router();
-const jsonParser = require('body-parser').json();
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://admin:admin123456@ds251988.mlab.com:51988/products');
-const Schema = mongoose.Schema;
+var jsonParser = require('body-parser').json();
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://admin:admin123456@ds251988.mlab.com:51988/products');
+// const Schema = mongoose.Schema;
 
-const productDataSchema = new Schema({
-    name: {type: String, required: true},
-    price: String,
-    description: String,
-    typeProduct: String,
-    imgUrl: String
-  }, {collection: 'list_products'});
+// const productDataSchema = new Schema({
+//     name: {type: String, required: true},
+//     price: String,
+//     description: String,
+//     typeProduct: String,
+//     imgUrl: String
+//   }, {collection: 'list_products'});
 
-const userDataSchema = new Schema({
-    name: {type: String, required: true},
-    password: String,
-    lastName: String,
-    firstName: String
-}, {collection: 'list_user'});
+// const userDataSchema = new Schema({
+//     name: {type: String, required: true},
+//     password: String,
+//     lastName: String,
+//     firstName: String
+// }, {collection: 'list_user'});
 
-const ProductData = mongoose.model('ProductData', productDataSchema);
-const UserData = mongoose.model('UserData', userDataSchema);
+// const ProductData = mongoose.model('ProductData', productDataSchema);
+// const UserData = mongoose.model('UserData', userDataSchema);
 
 router.post('/admin', jsonParser, (req,res) => {
     var {name, price, description, typeProduct, imgUrl} = req.body.params.data;   
