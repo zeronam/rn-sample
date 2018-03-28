@@ -2,11 +2,14 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 var jsonParser = require('body-parser').json();
+var multer  = require('multer');
+var upload = multer();
 const routes = require('./routes/index.js');
 const app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://admin:admin123456@ds251988.mlab.com:51988/products');
 const Schema = mongoose.Schema;
+
 
 const productDataSchema = new Schema({
     name: {type: String, required: true},
@@ -25,17 +28,23 @@ const userDataSchema = new Schema({
 
 const ProductData = mongoose.model('ProductData', productDataSchema);
 const UserData = mongoose.model('UserData', userDataSchema);
-// app.use(session({
-//     secret: 'jsdf7389isacuy28',
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie:{
-//       maxAge:60*60*100*24
-//       }
-// }));
+
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
-
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './client/build/uploads')
+    },
+    filename: function (req, file, cb) {
+        if(file.mimetype === 'image/png') {
+            cb(null, file.fieldname + '-' + Date.now() + '.png')
+        } else if (file.mimetype === 'image/jpeg') {
+            cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+        }
+    }
+  })
+  
+  var upload = multer({ storage: storage });
 
 // app.use('/', routes);
 app.listen(process.env.PORT || 5000);
@@ -56,6 +65,12 @@ app.post('/admin', jsonParser, (req,res) => {
         statusCode: 200,
     });
 });
+
+app.post('/delete', function(req, res, next) {
+    var email = req.body.email;
+    ProductData.findByIdAndRemove(email).exec();
+    res.redirect('/');
+  });
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -146,9 +161,26 @@ app.post('/register', jsonParser, (req,res) => {
       });
 });
 
+app.post('/upload', upload.single('image'), function (req, res, next) {
+    res.send({ message: 'Login success', statusCode: 200, item: req.file.filename });
+});
+
 app.get('*', (request, response) => {
 	response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
+
+// app.use(session({
+//     secret: 'jsdf7389isacuy28',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie:{
+//       maxAge:60*60*100*24
+//       }
+// }));
+
+
+
+
 
 
 
