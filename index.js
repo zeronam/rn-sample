@@ -91,7 +91,7 @@ app.post('/search', jsonParser, (req,res) => {
 
 app.get('/mobile', function(req, res, next) {
 
-    ProductData.find({typeProduct: 'Mobile'}).limit(8).sort({ name: -1 })
+    ProductData.find({typeProduct: 'Mobile'}).sort({ name: -1 })
         .then(function(doc) {
           res.send({
               items: doc,
