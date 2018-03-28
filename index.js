@@ -123,9 +123,6 @@ app.post('/detail', jsonParser, function(req, res) {
       });
   });
 
-//User
-
-
 
 app.post('/account', jsonParser, (req,res) => {    
     var name = req.body.params.data.name;
