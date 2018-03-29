@@ -4,6 +4,7 @@ const path = require('path');
 var jsonParser = require('body-parser').json();
 var multer  = require('multer');
 var upload = multer();
+var fs = require('fs');
 const routes = require('./routes/index.js');
 const app = express();
 const mongoose = require('mongoose');
@@ -163,6 +164,19 @@ app.post('/upload', upload.single('image'), function (req, res, next) {
     res.send({ message: 'Login success', statusCode: 200, item: req.file.filename });
 });
 
+app.post('/discard', jsonParser, function(req, res) {
+    var fileName = req.body.itemDiscard;
+    console.log(fileName);
+    fs.unlink("./client/build/uploads/"+fileName, (err) => {
+        if (err) {
+            console.log("failed to delete local image:"+err);
+        } else {
+            res.send({ message: 'Delete success', statusCode: 200});                             
+        }
+    });
+
+  });
+
 app.get('*', (request, response) => {
 	response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
@@ -176,13 +190,7 @@ app.get('*', (request, response) => {
 //       }
 // }));
 
-// fs.unlink("./public/images/uploads/"+req.file.filename, (err) => {
-//     if (err) {
-//         console.log("failed to delete local image:"+err);
-//     } else {
-//         console.log('successfully deleted local image');                                
-//     }
-// });
+
 
 
 
