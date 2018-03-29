@@ -33,6 +33,7 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
+      cb(null, './client/public/uploads'),
       cb(null, './client/build/uploads')
     },
     filename: function (req, file, cb) {
