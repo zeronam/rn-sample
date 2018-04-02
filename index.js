@@ -40,9 +40,9 @@ var storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         if(file.mimetype === 'image/png') {
-            cb(null, file.fieldname + '-' + Date.now() + '.png')
+            cb(null,Date.now() + '.png')
         } else if (file.mimetype === 'image/jpeg') {
-            cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+            cb(null,Date.now() + '.jpg')
         }
     }
   })
@@ -69,10 +69,17 @@ app.post('/admin', jsonParser, (req,res) => {
     });
 });
 
-app.post('/delete', function(req, res, next) {
-    var email = req.body.email;
-    ProductData.findByIdAndRemove(email).exec();
-    res.redirect('/');
+app.post('/delete', jsonParser, (req, res, next) => {
+    var id = req.body.product;
+    var imageName = req.body.image;
+    console.log(imageName);
+    ProductData.findByIdAndRemove(id).exec();
+    fs.unlink("./client/build/uploads/"+imageName, (err) => {
+        if (err) {
+            console.log("failed to delete local image:"+err);
+        }
+    });
+        res.send({ message: 'Delete success', statusCode: 200});
   });
 
 function escapeRegex(text) {
@@ -167,7 +174,6 @@ app.post('/upload', upload.single('image'), function (req, res, next) {
 
 app.post('/discard', jsonParser, function(req, res) {
     var fileName = req.body.itemDiscard;
-    console.log(fileName);
     fs.unlink("./client/build/uploads/"+fileName, (err) => {
         if (err) {
             console.log("failed to delete local image:"+err);
