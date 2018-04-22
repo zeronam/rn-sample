@@ -1,0 +1,19 @@
+.cartNotice {
+    margin-top:50px;
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.productThumb {
+    max-height:100px;
+    display:block;
+    margin:0 auto;
+}
+
+.product-img-thumb{
+    margin: 0 auto;
+    display: block;
+    background: #fff;
+    border: 0 none;
+    outline:none;
+}

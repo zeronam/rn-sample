@@ -65,7 +65,20 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-
+  "proxy": {
+    "/": {
+      "target": "http://localhost:5000"
+    },
+    "/mobile": {
+      "target": "http://localhost:5000"
+    },
+    "/laptop": {
+      "target": "http://localhost:5000"
+    },
+    "/upload": {
+      "target": "http://localhost:5000"
+    }
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"

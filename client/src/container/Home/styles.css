@@ -1,0 +1,45 @@
+.text-danger, .cls-danger {
+    color: #FF595E;
+}
+
+.admin_content.search {
+    width: 70%;
+    margin: 50px 0 0 0;
+}
+
+.admin_content.search .inputText {
+    display: inline-block;
+    width: 80%;
+    vertical-align: top;
+    margin: 0;
+}
+
+.admin_content.search .inputText input {
+    height:50px;
+    padding-left:15px;
+}
+
+.admin_content.search .center-buttons {
+    width: 100px;
+    display: inline-block;
+    margin-left:20px;
+}
+
+.admin_content.search .center-buttons .btn{
+    margin:0;
+    height:50px;
+}
+
+@media screen and (max-width: 768px) {
+    .admin_content.search{
+        width: 100%;
+    }
+
+    .admin_content.search form{
+        display:flex;
+    }
+
+    .admin_content.search .inputText {
+        flex: 5
+    }
+}

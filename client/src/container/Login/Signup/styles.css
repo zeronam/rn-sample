@@ -1,0 +1,13 @@
+.btn-register {
+    padding: 9px 0
+}
+
+.signup_form {
+    border:1px solid #ddd;
+    padding: 20px;
+    border-radius:5px;
+}
+
+.signup_form .center-buttons .btn{
+    flex-basis: 100%;
+}

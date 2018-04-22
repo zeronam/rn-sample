@@ -1,0 +1,24 @@
+.selectType {
+    margin: 20px 0;
+    width:150px;
+}
+
+.imgthumb {
+    margin:35px 0 20px;
+    border: 1px solid #ddd;
+    padding:10px;
+    border-radius: 5px;
+    min-height: 200px;
+}
+
+.imgthumb img {
+    max-height: 200px;
+}
+
+.nav-tabs {
+    margin: 50px 15px 0 15px;
+}
+
+.list_products {
+    margin: 0 15px;
+}
