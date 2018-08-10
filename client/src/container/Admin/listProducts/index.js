@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
 import ListLaptop from './listLaptop';
 import ListMobile from './listMobile';
+import ListUser from './listUser'; 
 
 class ListProducts extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            status: 'Mobile'
+            type: 'User'
         }
     }
 
-
     changeTypeSelect = () => {
-        if (this.typeProduct.value === 'Laptop') {
-            this.setState({status: 'Laptop'});
-        } else if (this.typeProduct.value === 'Mobile') {
-            this.setState({status: 'Mobile'})
-        }
+        const type = this.typeProduct.value;
+        this.setState({ type });
     }
 
     render() {
-        var checkStatus = this.state.status === 'Mobile' ? <ListMobile /> : <ListLaptop />;
+
         return (
             <div className="list_products">
                 <select 
@@ -29,10 +26,13 @@ class ListProducts extends Component {
                 className="form-control selectType" 
                 ref={(ref) => this.typeProduct = ref}
                 onChange={this.changeTypeSelect}>
+                    <option value="User">User</option>
                     <option value="Mobile">Mobile</option>
                     <option value="Laptop">Laptop</option>
                 </select>
-                {checkStatus}
+                {this.state.type === "Mobile" && <ListMobile />}
+                {this.state.type === "User" && <ListUser />}
+                {this.state.type === "Laptop" && <ListLaptop />}
             </div>
         )
     }

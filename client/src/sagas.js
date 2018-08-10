@@ -8,6 +8,7 @@ import WatchAdmin from './container/Admin/sagas';
 import WatchSignIn from './container/Login/Signin/sagas';
 import WatchSignUp from './container/Login/Signup/sagas';
 import WatchSearch from './container/Search/sagas';
+import WatchUser from './container/Admin/listProducts/listUser/sagas';
 
 export default function* rootSaga() {
     yield all([
@@ -18,6 +19,7 @@ export default function* rootSaga() {
        call(WatchDetail),
        call(WatchSignIn),
        call(WatchSignUp),
-       call(WatchSearch)
+       call(WatchSearch),
+       call(WatchUser)
     ]);
 }

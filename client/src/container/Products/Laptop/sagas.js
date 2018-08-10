@@ -5,10 +5,10 @@ import * as laptopActionType from './constants';
 
 export function* LaptopAsync(action) {
     const result = yield call(listLaptop, action.params);
-    const statusCode = result.statusCode;
+    const statusCode = result.status;
     if (statusCode === 200) {
         yield [
-            put({ type: laptopActionType.LAPTOP_SUCCESS, data: result.items }),
+            put({ type: laptopActionType.LAPTOP_SUCCESS, data: result.list }),
         ];
     } else {
         console.warn("createAsync eror", result.data);

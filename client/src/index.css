@@ -351,7 +351,7 @@ table th, table td {
 .product-details h1.product-name {margin: 0;}
 .product-product .product-details h1.product-name {border-bottom: 1px solid #e0e0e0;color: #424242;font-size: 22px;}
 .price{color: #c10017;display:block;font-weight:bold;font-size:18px}
-.product-details .price{display:inline-block;}
+.product-details .price{display:inline-block; margin-left: 5px}
 .product-details .price_line{font-size:16px;}
 .buyitem{padding:5px 15px;display:block;border:1px solid #ccc;border-radius: 5px;}
 .product-details .button.secondary{margin-top: 20px;padding: 15px 40px;font-size: 15px;}

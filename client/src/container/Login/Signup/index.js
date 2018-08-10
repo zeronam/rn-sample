@@ -52,9 +52,9 @@ class SignUp extends Component {
         var showLoading = this.state.isLoading ? <Loading /> : '';
         return (
             <div className="admin_content">
-                <p className="headtxt">Sign Up</p>
+                
                 <Form ref={c => { this.form = c }} onSubmit={this.onSubmit.bind(this)} className="signup_form">
-
+                                <p className="headtxt">Sign Up</p>
                                     <label>First name <span className="text-danger">*</span></label>
 
                                     <Input type="text"

@@ -123,7 +123,7 @@ class UploadProduct extends Component {
 
                         <label>Type product</label>
 
-                        <Select value="Mobile" name="typeProduct" className="form-control selectType" validations={[Vali.required]}>
+                        <Select value="Mobile" name="typeProduct" className="form-control selectType typeProduct" validations={[Vali.required]}>
                             <option value="Mobile">Mobile</option>
                             <option value="Laptop">Laptop</option>
                         </Select>

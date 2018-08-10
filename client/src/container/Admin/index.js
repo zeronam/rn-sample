@@ -23,8 +23,6 @@ class Admin extends Component {
         )
     }
 
-
-
     render() {
         return <div>{this.renderForm()}</div>;
     }

@@ -11,7 +11,6 @@ export function* signUpAsync(action) {
             put({ type: SignUpActionType.SIGNUP_SUCCESS, status: 'Create success' }),
         ];
     } else {
-        debugger;
         yield [
             put({ type: SignUpActionType.SIGNUP_FAILD, status: 'Create faild' }),
         ];

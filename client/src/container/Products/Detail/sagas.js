@@ -5,11 +5,11 @@ import * as IdActionType from './constants';
 
 export function* createIdAsync(action) {
     const result = yield call(getId, action.params);
-    const statusCode = result.statusCode;
+    const statusCode = result.status;
     
     if (statusCode === 200) {
         yield [
-            put({ type: IdActionType.ID_SUCCESS, data: result.items }),
+            put({ type: IdActionType.ID_SUCCESS, data: result.item }),
         ];
     } else {
         console.warn("createAsync eror", result.data);

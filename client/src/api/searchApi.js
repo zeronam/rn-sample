@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const searchProduct = (params) => {
+  console.log(params);
     return axios.post('/search', {
         params
       }).then(function(res) {

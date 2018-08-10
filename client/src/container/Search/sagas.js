@@ -5,10 +5,10 @@ import * as SearchActionType from './constants';
 
 export function* createSearchAsync(action) {
     const result = yield call(searchProduct, action.params);
-    const statusCode = result.statusCode;
+    const statusCode = result.status;
     if (statusCode === 200) {
         yield [
-            put({ type: SearchActionType.SEARCH_SUCCESS, status: 'Search success', data: result.items, keyword: result.keyword  }),
+            put({ type: SearchActionType.SEARCH_SUCCESS, status: 'Search success', data: result.list, keyword: result.keyword  }),
         ];
     } else {
         yield [

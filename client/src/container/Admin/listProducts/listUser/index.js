@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn  } from 'react-bootstrap-table';
 import { connect } from 'react-redux';
 import * as MobileActionType from '../../../Products/Mobile/constants';
+import * as UserActionType from './constants';
 import * as NotifyActionType from '../../../../components/Notification/constatnts';
-import NumberFormat from 'react-number-format';
 import axios from 'axios';
 
-class ListMobile extends Component {
+class ListUser extends Component {
     constructor(props) {
         super(props);
 
@@ -17,7 +17,7 @@ class ListMobile extends Component {
 
     componentDidMount() {
         this.props.dispatch({
-            type: MobileActionType.MOBILE_ASYNC,
+            type: UserActionType.GET_USER_LIST_ASYNC,
         });
     }
 
@@ -27,26 +27,14 @@ class ListMobile extends Component {
         }
     };
 
-    // goProduct(product) {
-    //     this.props.history.push(`/detail/${product._id}`);
-    // }
-
-    priceFormatter(cell, row){
-        return <div><NumberFormat value={cell} displayType={'text'} thousandSeparator={true} renderText={value => <span>{value}</span> }/> </div>;
-    };
-
-    imageFormatter(cell, row) {   
-        return <button type="button" className="product-img-thumb" onClick={() => {this.goProduct(row)}}><img className="productThumb" src={`/uploads/${cell}`} alt={row.name}/></button>;
-    };
-
     onDelete(product) {
         if ( confirm('Are you sure you want to delete?') ) { //eslint-disable-line
-            axios.post('/delete-product', { product: product._id, image: product.imgUrl })
+            axios.post('/delete-user', { product: product._id, image: product.imgUrl })
             .then(res => {
                 if(res.data.statusCode === 200) {
                     this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: res.data.message });
                     this.props.dispatch({
-                        type: MobileActionType.REMOVE_MOBILE_ITEM,
+                        type: UserActionType.REMOVE_USER,
                         data: 
                         {   
                             product
@@ -69,11 +57,11 @@ class ListMobile extends Component {
     renderTable() {
         return (
             <BootstrapTable data={this.state.content}>
-                <TableHeaderColumn dataField="_id" isKey={true} dataAlign="center" dataSort={true} hidden={true}>Product ID</TableHeaderColumn>
-                <TableHeaderColumn dataField="imgUrl" dataFormat={this.imageFormatter.bind(this)}>Image</TableHeaderColumn>
-                <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
-                <TableHeaderColumn dataField="price" dataFormat={this.priceFormatter}>Product Price</TableHeaderColumn>
-                <TableHeaderColumn dataField="typeProduct">Type Product</TableHeaderColumn>
+                <TableHeaderColumn dataField="_id" isKey={true} dataSort={false}>ID</TableHeaderColumn>
+                {/* <TableHeaderColumn dataField="imgUrl" dataFormat={this.imageFormatter.bind(this)}>Image</TableHeaderColumn> */}
+                {/* <TableHeaderColumn dataField="name">Name</TableHeaderColumn> */}
+                {/* <TableHeaderColumn dataField="price" dataFormat={this.priceFormatter}>Product Price</TableHeaderColumn> */}
+                <TableHeaderColumn dataField="email">Email</TableHeaderColumn>
                 <TableHeaderColumn dataField="button" dataFormat={this.deleteFormatter.bind(this)}></TableHeaderColumn>
             </BootstrapTable>
         )        
@@ -87,8 +75,9 @@ class ListMobile extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return state.MobileStore;
+    console.log(state.UserStore);
+    return state.UserStore;
 };
 
 
-export default connect(mapStateToProps)(ListMobile);
+export default connect(mapStateToProps)(ListUser);

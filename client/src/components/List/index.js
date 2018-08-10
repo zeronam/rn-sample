@@ -10,7 +10,7 @@ class ListItem extends Component {
                 
                 <div className="inner">
                     <NavLink to={`/detail/${data._id}`} className="navlink" title={data.name}>
-                    <img src={`/uploads/${data.imgUrl}`} alt={data.name}/> 
+                    <img src={`http://react-node-mysql.herokuapp.com/uploads/${data.imgUrl}`} alt={data.name}/> 
                     <p className="product-name">{data.name}</p>
                     <NumberFormat value={data.price} displayType={'text'} thousandSeparator={true} renderText={value => <p className="price">{value}</p>} />
                     </NavLink>

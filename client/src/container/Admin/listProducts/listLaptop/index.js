@@ -29,7 +29,7 @@ class ListLaptop extends Component {
 
     onDelete(product) {
         if ( confirm('Are you sure you want to delete?') ) { //eslint-disable-line
-            axios.post('/delete', { product: product._id, image: product.imgUrl })
+            axios.post('/delete-product', { product: product._id, image: product.imgUrl })
             .then(res => {
                 if(res.data.statusCode === 200) {
                     this.props.dispatch({ type: NotifyActionType.NOTIFY_SUCCESS, data: res.data.message });

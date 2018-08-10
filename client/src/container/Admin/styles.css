@@ -3,6 +3,10 @@
     width:150px;
 }
 
+.selectType.typeProduct {
+    margin: 0;
+}
+
 .imgthumb {
     margin:35px 0 20px;
     border: 1px solid #ddd;
